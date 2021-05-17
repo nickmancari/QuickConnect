@@ -16,7 +16,7 @@ func Connect(method string, url string, data io.Reader, token string) []byte {
 	}
 
 	request.Header.Add("Content-Type", "application/json")
-	request.header.Add("Authorization", "Bearer "+token)
+	request.Header.Add("Authorization", "Bearer "+token)
 
 	client := &http.Client{}
 	response, err := client.Do(request)
