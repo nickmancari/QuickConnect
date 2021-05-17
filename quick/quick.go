@@ -5,6 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 func Connect(method string, url string, data io.Reader, token string) []byte {
@@ -33,17 +34,16 @@ func Connect(method string, url string, data io.Reader, token string) []byte {
 
 func SecureShell() {
 
-
 }
 
 func ReadTokenFile(path string) string {
 
-	        token, err := ioutil.ReadFile(path)
-		if err != nil {
-			fmt.Println("Token File Not Found: ", err)
-		}
-		
-		content := string(token)
-		r := strings.TrimSuffix(content, "\n")
-		return r
+	token, err := ioutil.ReadFile(path)
+	if err != nil {
+		fmt.Println("Token File Not Found: ", err)
+	}
+
+	content := string(token)
+	r := strings.TrimSuffix(content, "\n")
+	return r
 }
